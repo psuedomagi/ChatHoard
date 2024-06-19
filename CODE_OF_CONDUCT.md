@@ -1,4 +1,4 @@
-# Contributor Code of Conduct
+# ChatHoard Contributor Code of Conduct
 
 ## Contributions welcome!
 
@@ -30,7 +30,7 @@ You have the right and responsibility to remove, edit, or reject comments, commi
 
 ## Scope
 
-Always applies. Any behavior that doesn't align with these standards in *any* setting and will not be tolerated. If you can't be accepting, civil, and respectful, then you are not welcome to contribute to this project.
+Always applies. I will not tolerate any behavior that doesn't align with these standards in *any* setting. If you can't be accepting, civil, and respectful, then you aren't welcome here.
 
 ## Enforcement
 
