@@ -6,11 +6,11 @@ authors = ["Adam Poulemanos <mule_menthol0t at icloud.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-uvicorn = {extras = ["standard"], version = "^0.24.0.post1"}
+uvicorn = { extras = ["standard"], version = "^0.24.0.post1" }
 fastapi = "^0.109.1"
 python-multipart = "^0.0.7"
 email-validator = "^2.1.0.post1"
-passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+passlib = { extras = ["bcrypt"], version = "^1.7.4" }
 tenacity = "^8.2.3"
 pydantic = ">2.0"
 emails = "^0.6"
@@ -19,12 +19,12 @@ gunicorn = "^22.0.0"
 jinja2 = "^3.1.4"
 alembic = "^1.12.1"
 httpx = "^0.25.1"
-psycopg = {extras = ["binary"], version = "^3.1.13"}
+psycopg = { extras = ["binary"], version = "^3.1.13" }
 sqlmodel = "^0.0.19"
 # Pin bcrypt until passlib supports the latest
 bcrypt = "4.0.1"
 pydantic-settings = "^2.2.1"
-sentry-sdk = {extras = ["fastapi"], version = "^1.40.6"}
+sentry-sdk = { extras = ["fastapi"], version = "^1.40.6" }
 pyjwt = "^2.8.0"
 
 [tool.poetry.group.dev.dependencies]
@@ -44,12 +44,11 @@ strict = true
 exclude = ["venv", ".venv", "alembic"]
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py312"
 fix = true
 line-length = 100
 indent-width = 4
 exclude = [
-    "alembic",
     ".bzr",
     ".direnv",
     ".eggs",
@@ -70,6 +69,7 @@ exclude = [
     ".vscode",
     "__pypackages__",
     "_build",
+    "alembic",
     "buck-out",
     "build",
     "dist",
@@ -77,60 +77,6 @@ exclude = [
     "site-packages",
     "venv",
 ]
-
-[tool.ruff.lint]
-fixable = ["ALL"]
-select = [
-    "B",  # bugbear
-    "C",  # complexity
-    "D",  # docstring
-    "E",  # pycodestyle errors
-    "F",  # pyflakes
-    "G",  # logging
-    "I",  # isort
-    "UP",  # pyupgrade
-    "LOG",
-    "PD",
-    "S",
-    "SIM",
-    "UP",
-    "YTT",
-    "W",  # pycodestyle warnings
-]
-extend-select = [
-    "A003",  # assert statement with a tuple
-    "ASYNC100",  # missing async with
-    "ASYNC101",  # missing await in async function
-    "ASYNC102",  # missing await in async comprehension
-    "ANN201",  # missing type annotation for self in a class
-    "ANN002",  # missing type annotation for a variable
-    "ARG001",  # unused arguments in functions
-    "COM818",  # missing type annotation for a variable
-    "C901",  # function is too complex
-    "DTZ005",  # timezone-naive datetime
-    "DTZ007",  # timezone-naive datetime
-    "FBT001",  # assert False
-]
-ignore = [
-    "E501",  # line too long, handled by black
-    "B008",  # do not perform function calls in argument defaults
-    "W191",  # indentation contains tabs
-    "B904",  # Allow raising exceptions without from e, for HTTPException
-]
-
-[tool.ruff.lint.pyupgrade]
-# Preserve types, even if a file imports `from __future__ import annotations`.
-keep-runtime-typing = true
-
-[tool.ruff.lint.pydocstyle]
-Convention = "google"
-
-[tool.ruff.lint.isort]
-force-single-line = false
-force-wrap-aliases = false
-lines-after-inports = false
-lines-between-types = false
-split-on-trailing-comma = false
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -142,22 +88,90 @@ skip-magic-trailing-comma = true
 
 exclude = [
     "**/_vendor",
-    "setuptools/_distutils",
-    "setuptools/config/_validate_pyproject",
-    ".venv",
     ".git",
     ".github",
-    ".vscode",
     ".idea",
-    "dist",
-    "build",
-    "site",
+    ".venv",
+    ".vscode",
     "bin",
-    "lib",
-    "include",
+    "build",
+    "dist",
     "docs",
+    "include",
+    "lib",
+    "setuptools/_distutils",
+    "setuptools/config/_validate_pyproject",
+    "site",
 ]
 # Enable preview, required for quote-style = "preserve"
 preview = true
 # https://docs.astral.sh/ruff/settings/#format-quote-style
 quote-style = "double"
+
+
+[tool.ruff.lint]
+select = [
+    "A003",     # assert statement with a tuple
+    "ANN002",   # missing type annotation for a variable
+    "ANN201",   # missing type annotation for self in a class
+    "ARG001",   # unused arguments in functions
+    "ASYNC100", # missing async with
+    "ASYNC101", # missing await in async function
+    "ASYNC102", # missing await in async comprehension
+    "B",        # bugbear
+    "C",        # complexity
+    "C901",     # function is too complex
+    "COM818",   # missing type annotation for a variable
+    "D",        # docstring
+    "DTZ005",   # timezone-naive datetime
+    "DTZ007",   # timezone-naive datetime
+    "E",        # pycodestyle errors
+    "F",        # pyflakes
+    "FBT001",   # assert False
+    "G",        # logging
+    "I",        # isort
+    "LOG",
+    "PD",
+    "S",
+    "SIM",
+    "UP",       # pyupgrade
+    "W",        # pycodestyle warnings
+    "YTT",
+]
+ignore = [
+    "B008",   # do not perform function calls in argument defaults
+    "B904",   # Allow raising exceptions without from e, for HTTPException
+    "COM812",
+    "COM819",
+    "D206",
+    "D212",
+    "D300",
+    "D417",
+    "E111",
+    "E114",
+    "E117",
+    "E402",
+    "E501",   # line too long, handled by black
+    "ISC001",
+    "ISC002",
+    "Q000",
+    "Q001",
+    "Q002",
+    "Q003",
+    "UP015",
+    "W191",   # indentation contains tabs
+]
+
+[tool.ruff.lint.isort]
+force-single-line = false
+force-wrap-aliases = false
+lines-after-inports = false
+lines-between-types = false
+split-on-trailing-comma = false
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true

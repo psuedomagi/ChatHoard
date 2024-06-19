@@ -14,12 +14,21 @@ repos:
       - id: trailing-whitespace
         exclude: ^frontend/src/client/.*
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.2.2
+    rev: v0.4.9
     hooks:
       - id: ruff
         args:
           - --fix
       - id: ruff-format
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.16.1
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/jorisroovers/gitlint
+    rev:  v0.19.1
+    hooks:
+    -   id: gitlint
+
 
 ci:
   autofix_commit_msg: 🎨 [pre-commit.ci] Auto format from pre-commit.com hooks

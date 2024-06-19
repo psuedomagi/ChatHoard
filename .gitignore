@@ -2,6 +2,8 @@
 # non-public working files
 .workbench/*
 .workbench/
+.devenv/
+.devenv/*
 
 # Leave launch.json public
 !.vscode/launch.json
