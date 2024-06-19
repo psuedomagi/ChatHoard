@@ -165,7 +165,7 @@ ignore = [
 [tool.ruff.lint.isort]
 force-single-line = false
 force-wrap-aliases = false
-lines-after-inports = false
+lines-after-imports = false
 lines-between-types = false
 split-on-trailing-comma = false
 
