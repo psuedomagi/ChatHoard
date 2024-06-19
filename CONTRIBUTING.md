@@ -4,6 +4,8 @@ Thank you for considering contributing to this repo!
 
 **I welcome any contribution. You can improve documentation, triage bugs, write tutorials, fix small and large mistakes, add features, or refactor the whole shebang (let's discuss that last one first though).**
 
+**When you submit a contribution, you agree to license your work under the same license as this project.**
+
 ## Ground Rules
 
 > Responsibilities
