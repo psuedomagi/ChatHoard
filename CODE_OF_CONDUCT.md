@@ -32,7 +32,6 @@ You have the right and responsibility to remove, edit, or reject comments, commi
 
 Always applies. Any behavior that doesn't align with these standards in *any* setting and will not be tolerated. If you can't be accepting, civil, and respectful, then you are not welcome to contribute to this project.
 
-
 ## Enforcement
 
 Please report any unacceptable behavior to me at mule_menthol0t at icloud.com. I will review and investigate all complaints and respond seriously and appropriately while maintaining confidentiality.
