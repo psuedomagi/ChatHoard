@@ -1,4 +1,4 @@
-# ChatHoard - Take Control of Your Chat History
+# :dragon::moneybag: ChatHoard: Take Control of Your Precious ChatGPT History :ring:
 
 ChatHoard is a ready-to-deploy full-stack web app for making the most of your ChatGPT chat history (other chat formats planned). ChatHorde offers robust search and filtering capabilities, and is lightning fast - based on Full-Stack-FastAPI-Template with FastAPI, Pydantic validation/serialization, SQLModel for ORM, and a front-end with React using Chakra UI. You can be deploy ChatHorde locally with Docker Compose in a minimalist deployment, or publicly with authentication and authorization using OAuth2 with JWT tokens and multi-user support. I created ChatHoard to help me manage my ChatGPT chats, but it's designed to scale robustly and can extend to other chat formats with added Pydantic models.
 
@@ -6,7 +6,7 @@ I was continually frustrated by how hard it is to search my ChatGPT chats and th
 
 The Pydantic models are robust and offer a lot of definition for the data; most of this isn't used in the current version, but it would put anyone wanting to run ML models on the data in a good position.
 
-## Currently in active, early development. More to follow. Stay tuned. NOT YET FUNCTIONAL
+## Currently in active, early development. Stay tuned. NOT YET FUNCTIONAL
 
 ## Planned Initial Features
 
@@ -30,7 +30,7 @@ Backend:
 - [ ] Add notes to chats
 - [ ] Automated download requests for new chats from ChatGPT (these are emailed to you); and deletion of old chats from OpenAI
 - [ ] Additional encryption options (i.e. client-side encryption)
-- [ ] Support for other chat formats (Gemini and Claude); I welcome your help adding support for your favorite chat format, please reach out. I'd love to collaborate.
+- [ ] Support for other chat formats (Gemini and Claude); I welcome your help adding support for your favorite chat format, please reach out. I'd love to collaborate. I don't have the data for these formats, so I at least need someone to donate some data to me, or I can help get you started on adding support for your format. (I'd like a sample of at least ~100 chats to iron out idiosyncrasies in the format, but more is better).
 - [ ] ML-powered search assistant
 - [ ] Chat sharing and in-line commenting
 - [ ] Passkey/webauthn authentication
