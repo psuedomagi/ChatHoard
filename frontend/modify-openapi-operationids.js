@@ -5,14 +5,14 @@ async function modifyOpenAPIFile(filePath) {
     const data = await fs.promises.readFile(filePath)
     const openapiContent = JSON.parse(data)
 
-    const paths = openapiContent.paths
+    const {paths} = openapiContent
     for (const pathKey of Object.keys(paths)) {
       const pathData = paths[pathKey]
       for (const method of Object.keys(pathData)) {
         const operation = pathData[method]
         if (operation.tags && operation.tags.length > 0) {
           const tag = operation.tags[0]
-          const operationId = operation.operationId
+          const {operationId} = operation
           const toRemove = `${tag}-`
           if (operationId.startsWith(toRemove)) {
             const newOperationId = operationId.substring(toRemove.length)

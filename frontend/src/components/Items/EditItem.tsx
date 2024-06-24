@@ -69,7 +69,6 @@ const EditItem = ({ item, isOpen, onClose }: EditItemProps) => {
   }
 
   return (
-    <>
       <Modal
         isOpen={isOpen}
         onClose={onClose}
@@ -117,7 +116,6 @@ const EditItem = ({ item, isOpen, onClose }: EditItemProps) => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
   )
 }
 

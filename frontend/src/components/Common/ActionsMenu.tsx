@@ -25,7 +25,6 @@ const ActionsMenu = ({ type, value, disabled }: ActionsMenuProps) => {
   const deleteModal = useDisclosure()
 
   return (
-    <>
       <Menu>
         <MenuButton
           isDisabled={disabled}
@@ -68,7 +67,6 @@ const ActionsMenu = ({ type, value, disabled }: ActionsMenuProps) => {
           onClose={deleteModal.onClose}
         />
       </Menu>
-    </>
   )
 }
 

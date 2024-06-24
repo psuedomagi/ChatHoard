@@ -12,7 +12,6 @@ const Appearance = () => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
-    <>
       <Container maxW="full">
         <Heading size="sm" py={4}>
           Appearance
@@ -32,7 +31,6 @@ const Appearance = () => {
           </Stack>
         </RadioGroup>
       </Container>
-    </>
   )
 }
 export default Appearance

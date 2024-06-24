@@ -62,7 +62,6 @@ const AddItem = ({ isOpen, onClose }: AddItemProps) => {
   }
 
   return (
-    <>
       <Modal
         isOpen={isOpen}
         onClose={onClose}
@@ -107,7 +106,6 @@ const AddItem = ({ isOpen, onClose }: AddItemProps) => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
   )
 }
 

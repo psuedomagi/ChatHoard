@@ -1,4 +1,4 @@
-from pydantic import EmailStr
+from pydantic import UUID4, EmailStr
 from sqlmodel import Field, Relationship, SQLModel
 
 

@@ -51,7 +51,9 @@ function ResetPassword() {
 
   const resetPassword = async (data: NewPassword) => {
     const token = new URLSearchParams(window.location.search).get("token")
-    if (!token) return
+    if (!token) {
+      return
+    }
     await LoginService.resetPassword({
       requestBody: { new_password: data.new_password, token: token },
     })
@@ -70,7 +72,7 @@ function ResetPassword() {
     },
   })
 
-  const onSubmit: SubmitHandler<NewPasswordForm> = async (data) => {
+  const onSubmit: SubmitHandler<NewPasswordForm> = async (data: NewPasswordForm) => {
     mutation.mutate(data)
   }
 

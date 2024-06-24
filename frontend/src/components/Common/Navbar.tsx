@@ -13,7 +13,6 @@ const Navbar = ({ type }: NavbarProps) => {
   const addItemModal = useDisclosure()
 
   return (
-    <>
       <Flex py={8} gap={4}>
         {/* TODO: Complete search functionality */}
         {/* <InputGroup w={{ base: '100%', md: 'auto' }}>
@@ -33,7 +32,6 @@ const Navbar = ({ type }: NavbarProps) => {
         <AddUser isOpen={addUserModal.isOpen} onClose={addUserModal.onClose} />
         <AddItem isOpen={addItemModal.isOpen} onClose={addItemModal.onClose} />
       </Flex>
-    </>
   )
 }
 

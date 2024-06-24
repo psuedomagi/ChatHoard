@@ -36,7 +36,7 @@ function ItemsTableBody() {
         <Tr key={item.id}>
           <Td>{item.id}</Td>
           <Td>{item.title}</Td>
-          <Td color={!item.description ? "ui.dim" : "inherit"}>
+          <Td color={item.description ? "inherit" : "ui.dim"}>
             {item.description || "N/A"}
           </Td>
           <Td>
@@ -60,7 +60,7 @@ function ItemsTable() {
           </Tr>
         </Thead>
         <ErrorBoundary
-          fallbackRender={({ error }) => (
+          fallbackRender={({ error }: { error: Error }) => (
             <Tbody>
               <Tr>
                 <Td colSpan={4}>Something went wrong: {error.message}</Td>

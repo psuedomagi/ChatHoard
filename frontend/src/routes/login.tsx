@@ -52,8 +52,10 @@ function Login() {
     },
   })
 
-  const onSubmit: SubmitHandler<AccessToken> = async (data) => {
-    if (isSubmitting) return
+  const onSubmit: SubmitHandler<AccessToken> = async (data: AccessToken) => {
+    if (isSubmitting) {
+      return
+    }
 
     resetError()
 
@@ -65,7 +67,6 @@ function Login() {
   }
 
   return (
-    <>
       <Container
         as="form"
         onSubmit={handleSubmit(onSubmit)}
@@ -131,6 +132,5 @@ function Login() {
           Log In
         </Button>
       </Container>
-    </>
   )
 }

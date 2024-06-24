@@ -52,7 +52,6 @@ const ChangePassword = () => {
   }
 
   return (
-    <>
       <Container maxW="full">
         <Heading size="sm" py={4}>
           Change Password
@@ -114,7 +113,6 @@ const ChangePassword = () => {
           </Button>
         </Box>
       </Container>
-    </>
   )
 }
 export default ChangePassword

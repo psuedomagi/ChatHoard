@@ -12,7 +12,6 @@ const DeleteAccount = () => {
   const confirmationModal = useDisclosure()
 
   return (
-    <>
       <Container maxW="full">
         <Heading size="sm" py={4}>
           Delete Account
@@ -29,7 +28,6 @@ const DeleteAccount = () => {
           onClose={confirmationModal.onClose}
         />
       </Container>
-    </>
   )
 }
 export default DeleteAccount

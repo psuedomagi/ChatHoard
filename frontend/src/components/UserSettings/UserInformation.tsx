@@ -67,7 +67,7 @@ const UserInformation = () => {
     },
   })
 
-  const onSubmit: SubmitHandler<UserUpdateMe> = async (data) => {
+  const onSubmit: SubmitHandler<UserUpdateMe> = async (data: UserUpdateMe) => {
     mutation.mutate(data)
   }
 
@@ -77,7 +77,6 @@ const UserInformation = () => {
   }
 
   return (
-    <>
       <Container maxW="full">
         <Heading size="sm" py={4}>
           User Information
@@ -149,7 +148,6 @@ const UserInformation = () => {
           </Flex>
         </Box>
       </Container>
-    </>
   )
 }
 

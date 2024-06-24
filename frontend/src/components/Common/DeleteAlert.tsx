@@ -69,7 +69,6 @@ const Delete = ({ type, id, isOpen, onClose }: DeleteProps) => {
   }
 
   return (
-    <>
       <AlertDialog
         isOpen={isOpen}
         onClose={onClose}
@@ -106,7 +105,6 @@ const Delete = ({ type, id, isOpen, onClose }: DeleteProps) => {
           </AlertDialogContent>
         </AlertDialogOverlay>
       </AlertDialog>
-    </>
   )
 }
 

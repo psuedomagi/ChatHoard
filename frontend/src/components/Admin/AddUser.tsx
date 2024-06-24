@@ -75,8 +75,7 @@ const AddUser = ({ isOpen, onClose }: AddUserProps) => {
   }
 
   return (
-    <>
-      <Modal
+    <Modal
         isOpen={isOpen}
         onClose={onClose}
         size={{ base: "sm", md: "md" }}
@@ -93,7 +92,10 @@ const AddUser = ({ isOpen, onClose }: AddUserProps) => {
                 id="email"
                 {...register("email", {
                   required: "Email is required",
-                  pattern: emailPattern,
+                  pattern: {
+                    value: emailPattern,
+                    message: "Invalid email format",
+                  },
                 })}
                 placeholder="Email"
                 type="email"
@@ -175,8 +177,7 @@ const AddUser = ({ isOpen, onClose }: AddUserProps) => {
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>
-    </>
+    </Modal>
   )
 }
 

@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router"
 
 const NotFound = () => {
   return (
-    <>
       <Container
         h="100vh"
         alignItems="stretch"
@@ -34,7 +33,6 @@ const NotFound = () => {
           Go back
         </Button>
       </Container>
-    </>
   )
 }
 
