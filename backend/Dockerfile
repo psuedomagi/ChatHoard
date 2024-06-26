@@ -3,17 +3,16 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:latest-2024-06-17
 WORKDIR /app/
 
 # Install Poetry
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
+RUN curl -sSf https://rye.astral.sh/get | bash | RYE_HOME=~/.rye/shims/rye && \
     cd /usr/local/bin && \
-    ln -s /opt/poetry/bin/poetry && \
-    poetry config virtualenvs.create false
+    ln -s ~/.rye/shims/rye &&
 
 # Copy poetry.lock* in case it doesn't exist in the repo
-COPY ./pyproject.toml ./poetry.lock* /app/
+COPY ./pyproject.toml ./requirements.lock* /app/
 
 # Allow installing dev dependencies to run tests
 ARG INSTALL_DEV=false
-RUN bash -c "if [ $INSTALL_DEV == 'true' ] ; then poetry install --no-root ; else poetry install --no-root --only main ; fi"
+RUN bash -c "if [ $INSTALL_DEV == 'true' ] ; then rye sync -f ; fi"
 
 ENV PYTHONPATH=/app
 

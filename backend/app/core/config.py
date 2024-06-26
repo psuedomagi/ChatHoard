@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str = secrets.token_urlsafe(32)
     # 60 minutes * 24 hours * 8 days = 8 days
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8
+    GENERATE_KEYPAIR: bool = True
     PRIVATE_KEY_PATH: str = "path/to/private_key.pem"
     PUBLIC_KEY_PATH: str = "path/to/public_key.pem"
     DOMAIN: str = "localhost"
@@ -55,6 +56,9 @@ class Settings(BaseSettings):
         memory_cost=2**17,
         parallelism=4,
     )
+
+    EMBEDDING_MODEL: str = "mxbai-embed-large-v1"
+    RERANKING_MODEL: str = "mxbai-rerank-xsmall-v1"
 
     @computed_field  # type: ignore[misc]
     @property

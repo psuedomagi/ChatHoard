@@ -9,12 +9,13 @@
 #   generate-hashes: false
 
 -e file:.
-aiofiles==23.2.1
-    # via meilisearch-python-sdk
-    # via meilisync
+alembic==1.13.1
+    # via chathoard
 annotated-types==0.7.0
     # via pydantic
 anyio==4.4.0
+    # via fast-depends
+    # via faststream
     # via httpx
     # via starlette
     # via watchfiles
@@ -23,14 +24,8 @@ argon2-cffi==23.1.0
 argon2-cffi-bindings==21.2.0
     # via argon2-cffi
     # via chathoard
-arq==0.26.0
-    # via chathoard
 cachetools==5.3.3
     # via premailer
-camel-converter==3.1.2
-    # via meilisearch
-    # via meilisearch-fastapi
-    # via meilisearch-python-sdk
 certifi==2024.6.2
     # via httpcore
     # via httpx
@@ -44,11 +39,8 @@ chardet==5.2.0
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
-    # via arq
     # via typer
     # via uvicorn
-cramjam==2.8.3
-    # via python-snappy
 cryptography==42.0.8
     # via pyjwt
 cssselect==1.2.0
@@ -58,25 +50,29 @@ cssutils==2.11.1
     # via premailer
 dnspython==2.6.1
     # via email-validator
-    # via pymongo
+docarray==0.40.0
+    # via chathoard
 email-validator==2.2.0
     # via chathoard
     # via fastapi
 emails==0.6
     # via chathoard
+fast-depends==2.4.4
+    # via faststream
 fastapi==0.111.0
     # via chathoard
-    # via meilisearch-fastapi
     # via sentry-sdk
 fastapi-cli==0.0.4
     # via fastapi
+faststream==0.5.13
+    # via chathoard
+greenlet==3.0.3
+    # via sqlalchemy
 gunicorn==22.0.0
     # via chathoard
 h11==0.14.0
     # via httpcore
     # via uvicorn
-hiredis==2.3.2
-    # via redis
 httpcore==1.0.5
     # via httpx
 httptools==0.6.1
@@ -84,7 +80,6 @@ httptools==0.6.1
 httpx==0.27.0
     # via chathoard
     # via fastapi
-    # via meilisearch-python-sdk
 idna==3.7
     # via anyio
     # via email-validator
@@ -93,73 +88,53 @@ idna==3.7
 jinja2==3.1.4
     # via chathoard
     # via fastapi
-jsonpatch==1.33
-    # via langchain-core
-jsonpointer==3.0.0
-    # via jsonpatch
-langchain-core==0.2.9
-    # via chathoard
-langsmith==0.1.81
-    # via langchain-core
-loguru==0.7.2
-    # via meilisync
 lxml==5.2.2
     # via emails
     # via premailer
+mako==1.3.5
+    # via alembic
 markdown-it-py==3.0.0
     # via rich
 markupsafe==2.1.5
     # via jinja2
+    # via mako
 mdurl==0.1.2
     # via markdown-it-py
-meilisearch==0.31.3
-    # via chathoard
-meilisearch-fastapi==0.19.0
-    # via chathoard
-meilisearch-python-sdk==2.10.1
-    # via meilisearch-fastapi
-    # via meilisync
-meilisync==0.1.3
-    # via chathoard
 more-itertools==10.3.0
     # via cssutils
-motor==3.4.0
-    # via chathoard
+mypy-extensions==1.0.0
+    # via typing-inspect
+numpy==2.0.0
+    # via docarray
 orjson==3.10.5
+    # via docarray
     # via fastapi
-    # via langsmith
 packaging==24.1
     # via gunicorn
-    # via langchain-core
 premailer==3.10.0
     # via emails
+psycopg==3.1.19
+    # via chathoard
+psycopg-binary==3.1.19
+    # via psycopg
 pycparser==2.22
     # via cffi
 pydantic==2.7.4
-    # via camel-converter
     # via chathoard
+    # via docarray
+    # via fast-depends
     # via fastapi
-    # via langchain-core
-    # via langsmith
-    # via meilisearch-fastapi
-    # via meilisearch-python-sdk
     # via pydantic-settings
+    # via sqlmodel
 pydantic-core==2.18.4
     # via pydantic
-pydantic-settings==2.3.3
+pydantic-settings==2.3.4
     # via chathoard
-    # via meilisearch-fastapi
-    # via meilisync
 pygments==2.18.0
     # via rich
 pyjwt==2.8.0
     # via chathoard
-    # via meilisearch-python-sdk
-pymongo==4.7.3
-    # via chathoard
-    # via motor
 python-dateutil==2.9.0.post0
-    # via chathoard
     # via emails
 python-dotenv==1.0.1
     # via pydantic-settings
@@ -167,21 +142,13 @@ python-dotenv==1.0.1
 python-multipart==0.0.9
     # via chathoard
     # via fastapi
-python-snappy==0.7.2
-    # via pymongo
 pyyaml==6.0.1
-    # via langchain-core
-    # via meilisync
     # via uvicorn
-redis==4.6.0
-    # via arq
-    # via meilisync
 requests==2.32.3
     # via emails
-    # via langsmith
-    # via meilisearch
     # via premailer
 rich==13.7.1
+    # via docarray
     # via typer
 sentry-sdk==2.6.0
     # via chathoard
@@ -192,24 +159,38 @@ six==1.16.0
 sniffio==1.3.1
     # via anyio
     # via httpx
+sqlalchemy==2.0.31
+    # via alembic
+    # via sqlmodel
+sqlmodel==0.0.19
+    # via chathoard
 starlette==0.37.2
     # via fastapi
-tenacity==8.4.1
+tenacity==8.4.2
     # via chathoard
-    # via langchain-core
 typer==0.12.3
     # via fastapi-cli
-    # via meilisync
+    # via faststream
+types-requests==2.32.0.20240622
+    # via docarray
 typing-extensions==4.12.2
+    # via alembic
     # via fastapi
+    # via faststream
+    # via psycopg
     # via pydantic
     # via pydantic-core
+    # via sqlalchemy
     # via typer
+    # via typing-inspect
+typing-inspect==0.9.0
+    # via docarray
 ujson==5.10.0
     # via fastapi
 urllib3==2.2.2
     # via requests
     # via sentry-sdk
+    # via types-requests
 uvicorn==0.30.1
     # via chathoard
     # via fastapi
@@ -219,5 +200,3 @@ watchfiles==0.22.0
     # via uvicorn
 websockets==12.0
     # via uvicorn
-zstandard==0.22.0
-    # via pymongo
