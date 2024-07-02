@@ -1,4 +1,4 @@
-# :dragon::moneybag: ChatHoard: Take Control of Your Precious ChatGPT [+more] History :ring:
+# :dragon::moneybag: ChatHoard: Take Control of Your Precious ChatGPT History [+more]  :ring:
 
 ChatHoard is a ready-to-deploy full-stack web app for making the most of your ChatGPT chat history (other chat formats planned). ChatHoard offers robust search and filtering capabilities, and is lightning fast - based on Full-Stack-FastAPI-Template with FastAPI, Pydantic validation/serialization, SQLModel for ORM, and a front-end with React using Chakra UI. You can be deploy ChatHoard locally with Docker Compose in a minimalist deployment, or publicly with authentication and authorization using OAuth2 with JWT tokens and multi-user support. I created ChatHoard to help me manage my ChatGPT chats, but it's designed to scale robustly and can extend to other chat formats with added Pydantic models.
 
