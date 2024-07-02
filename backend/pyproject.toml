@@ -24,6 +24,7 @@ dependencies = [
     "argon2-cffi-bindings >= 21.2.0",
     "alembic >= 1.13.1",
     "docarray[qdrant] >= 0.40.0",
+    "decorator >= 5.1.1",
     "email-validator >= 2.1.2",
     "emails >= 0.6",
     "fastapi >= 0.111.0",
@@ -41,6 +42,7 @@ dependencies = [
     "sqlmodel >= 0.0.19",
     "tenacity >= 8.4.1",
     "uvicorn[standard] >= 0.30.1",
+    "validators >= 0.28.3",
 ]
 classifiers = [
     "Development Status :: 1 - Planning",
@@ -80,10 +82,10 @@ packages = ["chat-hoard"]
 managed = true
 dev-dependencies = [
     "coverage >= 7.5.3",
+    "hypothesis[codemods, cli] >= 6.104.1",
     "mypy >= 1.10.0",
     "pre-commit >= 3.7.1",
     "pytest >= 8.2.2",
-    "pytest-meilisearch >= 0.5.0",
     "ruff >= 0.4.9",
     "uv >= 0.2.13",
 ]

@@ -1,0 +1,126 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "defaultRenderer": "elk", 'curve': 'stepAfter'}}%%
+---
+title: "OpenAI Chat History Pydantic Models"
+---
+graph TD
+    %% Main structure
+    A["`**ConversationHistoryJson**`"] ==> B["`**Conversation**`"]
+    B ==> C["`**ChatSession**`"]
+    C ==> D["`**Message**`"]
+
+    %% Message attributes
+    D ==> E1["`**MessageAuthor**`"]
+    D ===>|"`Message's **content_type** acts as a discriminator
+    for *both* its **metadata** *and* **content_type** attrs. These discriminate
+    into 7 **MessageContent** types that map to 7 sibling **MessageMetadata** types`"|Discriminated_Unions
+
+    subgraph Discriminated_Unions
+        subgraph disboxcontent["`**MessageContent**`"]
+        X1[MessageTextContent]
+        X4[MessageMultimodalTextContent]
+        X2[MessageCodeContent]
+        X3[MessageExecutionOutputContent]
+        X5[MessageTetherBrowsingDisplayContent]
+        X6[MessageTetherQuoteContent]
+        X7[MessageSystemErrorContent]
+        end
+        X1[MessageTextContent] -.->|"`message content_type:
+        **text**`"|Y1[MessageTextMetadata]
+        X4[MessageMultimodalTextContent] -.->|"`message content_type:
+        **multimodal_text**`"|Y4[MessageMultimodalTextMetadata]
+        X2[MessageCodeContent] -.->|"`message content_type:
+        **code**`"|Y2[MessageCodeMetadata]
+        X3[MessageExecutionOutputContent] -.->|"`message content_type:
+        **execution_output**`"|Y3[MessageExecutionOutputMetadata]
+        X5[MessageTetherBrowsingDisplayContent]-.->|"`message content_type:
+        **tether_browsing_display**`"|Y5[MessageTetherBrowsingDisplayMetadata]
+        X6[MessageTetherQuoteContent] -.->|"`message content_type:
+        **tether_quote**`"|Y6[MessageTetherQuoteMetadata]
+        X7[MessageSystemErrorContent]-.->|"`message content_type:
+        **system_error**`"|Y7[MessageSystemErrorMetadata]
+
+        subgraph disboxmetadata["`**MessageMetadata**`"]
+        Y1
+        Y2
+        Y3
+        Y4
+        Y5
+        Y6
+        Y7
+        end
+
+    end
+    X4 --> MessageContentImagePart
+
+    subgraph MessageContentImagePart
+        G1[MessageContentImagePart]
+        G1 --> H1[MessageContentImagePartMetadata]
+        H1 --> I1[DalleMetadata]
+    end
+
+    subgraph MessageMetadata_attributes
+        Y1 --> G4[UserContextMessageData]
+        Y1 ---> JitPluginData
+
+        subgraph JitPluginData
+            G5[JitPluginData]
+            G5 --> H5[JitFromServer]
+            H5 --> I5[JitFromServerBody]
+            I5 --> J2[JitFromServerBodyActions]
+            J2 --> K1[JitFromServerBodyActionsTarget]
+            I5 --> J3[JitFromServerBodyParams]
+            G5 --> H6[JitFromClient]
+            H6 --> I6[JitFromClientTarget]
+            I6 --> J4[JitFromClientTargetData]
+        end
+
+        Y1 & Y2 ---> Citations
+
+        subgraph Citations
+            G6[Citations]
+            G6 --> H4[CitationMetadata]
+            H4 --> I4[CitationMetadataExtra]
+        end
+
+        Y1 & Y2 & Y4 --> G2[Attachments]
+        Y1 & Y2 & Y4 --> G3[FinishDetails]
+
+        Y5 & Y6 ---> CiteMetadata
+
+        subgraph CiteMetadata
+            G7[CiteMetadata]
+            G7 --> I7[InsideCiteMetadataList]
+            I7 --> J5[CiteMetadataCitationFormat]
+        end
+
+        Y3 ---> AggregateResult
+
+        subgraph AggregateResult
+            G8[AggregateResult]
+            G8 --> H2[InKernelException]
+            G8 --> H3[AggregateResultJupyterMessage]
+            H3 --> I2[AggregateResultJupyterMessageParentHeader]
+            H3 --> I3[AggregateResultJupyterMessageContent]
+            I3 --> J1[AggregateResultJupyterMessageContentData]
+        end
+    end
+
+    %% Styling
+    classDef default fill:#6f601b,stroke:#fff,stroke-width:1px,font-size:24pt;
+    classDef highlightedBox fill:#376e93,stroke:#fff,stroke-width:3px,font-size:24pt;
+    classDef main fill:#1c486b,stroke:#fff,stroke-width:3px,font-size:32pt;
+    classDef messageAttributes fill:#a26135,stroke:#fff,stroke-width:3px,font-size:24pt,font-weight:bold;
+    classDef discriminators fill:#a26135,stroke:#fff,stroke-width:1px,font-size:14pt;
+    classDef messageContentImagePart fill:#1c486b,stroke:#fff,stroke-width:1px,font-size:24pt;
+    classDef metadataAttrs fill:#1c486b,stroke:#fff,stroke-width:1px;
+    classDef edgeBox fill:#302a6b,stroke:#fff,stroke-width:1px;
+
+
+    class A,B,C,D main;
+    class disboxcontent,disboxmetadata highlightedBox;
+    class E1 messageAttributes;
+    class X1,X2,X3,X4,X5,X6,X7,Y1,Y2,Y3,Y4,Y5,Y6,Y7 discriminators;
+    class G1,H1,I1 messageContentImagePart;
+    class G8,H2,H3,I2,I3,J1,G6,H4,I4,G5,H5,I5,J2,K1,I5,J3,H6,I6,J4,G7,I7,J5,G2,G3,G4 metadataAttrs;
+
+    %%{init: {'themeVariables': { 'edgeLabelBackground': '#302a6b', 'fontFamily': '&quot;Segoe UI&quot;, helvetica, system-ui, verdana, arial, sans-serif'}}}%%
