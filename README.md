@@ -30,7 +30,7 @@ Backend:
 - [ ] Tag chats
 - [ ] Add notes to chats
 - [ ] Automated download requests for new chats from ChatGPT (these are emailed to you); and deletion of old chats from OpenAI
-- [ ] Additional encryption options (e.g. differential privacy, possibly optional client-side/e2e encryption; I have some ideas for doing this even if I need to do compute on the server side... but it's a bit of a stretch goal)
+- [ ] Additional encryption/privacy options (e.g. differential privacy, possibly optional client-side/e2e encryption; I have some ideas for doing this even if I need to do compute on the server side... but it's a bit of a stretch goal)
 - [ ] Support for other chat formats (Gemini and Claude); I welcome your help adding support for your favorite chat format, please reach out. I'd love to collaborate. I don't have the data for these formats, so I at least need someone to donate some data to me, or I can help get you started on adding support for your format. (I'd like a sample of at least ~100 chats to iron out idiosyncrasies in the format, but more is better).
 - [ ] ML-powered search assistant/RAG
 - [ ] Chat sharing and in-line commenting, collaboration
